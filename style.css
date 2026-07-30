@@ -1,0 +1,81 @@
+// ---------- PAGE NAVIGATION ----------
+function nextPage(id) {
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
+
+    document.getElementById(id).classList.add("active");
+
+    // Smooth scroll to top
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+// ---------- SPIN WHEEL ----------
+function spinWheel() {
+
+    const wheel = document.querySelector(".circle");
+    const answer = document.getElementById("answer");
+
+    // Random-looking spin (always lands on 100%)
+    let degree = 3600 + Math.floor(Math.random() * 360);
+
+    wheel.style.transform = `rotate(${degree}deg)`;
+
+    answer.innerHTML = "";
+
+    setTimeout(() => {
+
+        answer.innerHTML = `
+        ❤️ <br>
+        <span style="font-size:65px;">100%</span><br>
+        LOVEEEEEE 💗
+        `;
+
+        createHearts();
+
+        // Go to final page after 4 seconds
+        setTimeout(() => {
+            nextPage("final");
+        }, 4000);
+
+    }, 4200);
+
+}
+
+// ---------- HEART ANIMATION ----------
+function createHearts() {
+
+    for (let i = 0; i < 40; i++) {
+
+        let heart = document.createElement("div");
+
+        heart.innerHTML = "💗";
+
+        heart.style.position = "fixed";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = "100vh";
+        heart.style.fontSize = (20 + Math.random() * 30) + "px";
+        heart.style.pointerEvents = "none";
+        heart.style.zIndex = "9999";
+        heart.style.transition = "all 4s linear";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+
+            heart.style.top = "-10vh";
+            heart.style.opacity = "0";
+            heart.style.transform =
+                `translateX(${Math.random()*200-100}px)
+                 rotate(${Math.random()*720}deg)`;
+
+        }, 50);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 4500);
+
+    }
