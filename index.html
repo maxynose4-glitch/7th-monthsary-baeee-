@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy 7th Monthsary ❤️</title>
+
+<style>
+
+body{
+margin:0;
+font-family:'Arial',sans-serif;
+background:#ffd6e7;
+text-align:center;
+color:#5b2d42;
+}
+
+.page{
+display:none;
+min-height:100vh;
+padding:30px;
+box-sizing:border-box;
+}
+
+.active{
+display:block;
+}
+
+button{
+background:#ff4f9a;
+color:white;
+border:none;
+padding:15px 30px;
+border-radius:30px;
+font-size:18px;
+cursor:pointer;
+}
+
+.book{
+background:white;
+padding:40px;
+border-radius:20px;
+margin-top:100px;
+box-shadow:0 10px 25px #aaa;
+}
+
+.envelope{
+width:250px;
+height:160px;
+background:#8b5a2b;
+margin:80px auto;
+border-radius:15px;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+font-weight:bold;
+}
+
+.paper{
+background:#d8b48a;
+padding:30px;
+border-radius:15px;
+font-size:20px;
+line-height:1.6;
+}
+
+.photos img{
+width:140px;
+height:180px;
+object-fit:cover;
+margin:10px;
+border-radius:15px;
+border:5px solid white;
+}
+
+#wheel{
+width:250px;
+height:250px;
+border-radius:50%;
+margin:40px auto;
+background:conic-gradient(
+pink 0deg 60deg,
+#ff99cc 60deg 120deg,
+pink 120deg 180deg,
+#ff99cc 180deg 240deg,
+pink 240deg 300deg,
+#ff99cc 300deg 360deg
+);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:40px;
+color:white;
+font-weight:bold;
+transition:4s;
+}
+
+#result{
+font-size:45px;
+color:#ff0066;
+margin-top:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<div id="cover" class="page active">
+
+<div class="book">
+
+<h1>im so sorry </h1>
+
+<h2>Happy 7th Monthsary Babe</h2>
+
+<button onclick="openPage('envelope')">
+Open  💗
+</button>
+
+</div>
+
+</div>
+
+
+
+<div id="envelope" class="page">
+
+<h2>💌 Tap To Open</h2>
+
+<div class="envelope" onclick="openPage('letter')">
+
+Happy 7th Monthsary Babe 💗
+
+</div>
+
+</div>
+
+
+
+<div id="letter" class="page">
+
+<div class="paper">
+
+<h2>💗</h2>
+
+<p>
+Heyy Fuchiii Sigan Chota Packet💗 
+<br><br>
+
+I can't believe it's been 7th month of us being together.
+
+We fought, we argued, we stayed.
+
+I hope it still continues.
+
+<br><br>
+
+I'm sorry for yesterday.
+
+I love u 💗 and im missin u so much my love is very very rial for u so plizz forgive me
+
+<br><br>
+
+</p>
+
+<button onclick="openPage('photos')">
+Next 📸
+</button>
+
+</div>
+
+</div>
+
+
+
+<div id="photos" class="page">
+
+<h2>pics that proves aadu loves leem</h2>
+
+<div class="photos">
+
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
+
+</div>
+
+
+<button onclick="openPage('game')">
+Let's Play A Game 🎮
+</button>
+
+</div>
+
+
+
+<div id="game" class="page">
+
+<h2>How much Aadarsh loves Leemong ?</h2>
+
+<div id="wheel">
+100%
+</div>
+
+<button onclick="spin()">
+SPIN 
+</button>
+
+<h1 id="result"></h1>
+
+</div>
+
+
+
+<div id="final" class="page">
+
+<h1>💗 100% LOVEEEE 💗</h1>
+
+<h2>
+I love u always 💗
+</h2>
+
+<h2>
+Thank u for always loving me.
+</h2>
+
+<h2>
+U da best gf in this world 💖
+</h2>
+
+</div>
+
+
+
+<script>
+
+function openPage(id){
+
+document.querySelectorAll(".page").forEach(function(p){
+
+p.classList.remove("active");
+
+});
+
+document.getElementById(id).classList.add("active");
+
+}
+
+
+
+function spin(){
+
+let wheel=document.getElementById("wheel");
+
+wheel.style.transform="rotate(2000deg)";
+
+setTimeout(function(){
+
+document.getElementById("result").innerHTML=
+"100% ";
+
+setTimeout(function(){
+
+openPage("final");
+
+},3000);
+
+
+},4000);
+
+}
+
+
+</script>
+
+
+</body>
+</html>
